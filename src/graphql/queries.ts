@@ -89,6 +89,10 @@ export const getBlog1 = /* GraphQL */ `query GetBlog1($id: ID!) {
       __typename
     }
     userId
+    comments {
+      nextToken
+      __typename
+    }
     user1BlogsId
     __typename
   }
@@ -119,6 +123,44 @@ export const listBlog1s = /* GraphQL */ `query ListBlog1s(
 ` as GeneratedQuery<
   APITypes.ListBlog1sQueryVariables,
   APITypes.ListBlog1sQuery
+>;
+export const getComment = /* GraphQL */ `query GetComment($id: ID!) {
+  getComment(id: $id) {
+    id
+    content
+    createdAt
+    updatedAt
+    blogId
+    blog1CommentsId
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.GetCommentQueryVariables,
+  APITypes.GetCommentQuery
+>;
+export const listComments = /* GraphQL */ `query ListComments(
+  $filter: ModelCommentFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      content
+      createdAt
+      updatedAt
+      blogId
+      blog1CommentsId
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListCommentsQueryVariables,
+  APITypes.ListCommentsQuery
 >;
 export const getTodo1 = /* GraphQL */ `query GetTodo1($id: ID!) {
   getTodo1(id: $id) {

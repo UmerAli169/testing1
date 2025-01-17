@@ -150,6 +150,10 @@ export const createBlog1 = /* GraphQL */ `mutation CreateBlog1(
       __typename
     }
     userId
+    comments {
+      nextToken
+      __typename
+    }
     user1BlogsId
     __typename
   }
@@ -183,6 +187,10 @@ export const updateBlog1 = /* GraphQL */ `mutation UpdateBlog1(
       __typename
     }
     userId
+    comments {
+      nextToken
+      __typename
+    }
     user1BlogsId
     __typename
   }
@@ -216,6 +224,10 @@ export const deleteBlog1 = /* GraphQL */ `mutation DeleteBlog1(
       __typename
     }
     userId
+    comments {
+      nextToken
+      __typename
+    }
     user1BlogsId
     __typename
   }
@@ -223,6 +235,60 @@ export const deleteBlog1 = /* GraphQL */ `mutation DeleteBlog1(
 ` as GeneratedMutation<
   APITypes.DeleteBlog1MutationVariables,
   APITypes.DeleteBlog1Mutation
+>;
+export const createComment = /* GraphQL */ `mutation CreateComment(
+  $input: CreateCommentInput!
+  $condition: ModelCommentConditionInput
+) {
+  createComment(input: $input, condition: $condition) {
+    id
+    content
+    createdAt
+    updatedAt
+    blogId
+    blog1CommentsId
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreateCommentMutationVariables,
+  APITypes.CreateCommentMutation
+>;
+export const updateComment = /* GraphQL */ `mutation UpdateComment(
+  $input: UpdateCommentInput!
+  $condition: ModelCommentConditionInput
+) {
+  updateComment(input: $input, condition: $condition) {
+    id
+    content
+    createdAt
+    updatedAt
+    blogId
+    blog1CommentsId
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateCommentMutationVariables,
+  APITypes.UpdateCommentMutation
+>;
+export const deleteComment = /* GraphQL */ `mutation DeleteComment(
+  $input: DeleteCommentInput!
+  $condition: ModelCommentConditionInput
+) {
+  deleteComment(input: $input, condition: $condition) {
+    id
+    content
+    createdAt
+    updatedAt
+    blogId
+    blog1CommentsId
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteCommentMutationVariables,
+  APITypes.DeleteCommentMutation
 >;
 export const createTodo1 = /* GraphQL */ `mutation CreateTodo1(
   $input: CreateTodo1Input!

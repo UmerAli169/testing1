@@ -123,7 +123,24 @@ export type Blog1 = {
   updatedAt?: string | null,
   user?: User1 | null,
   userId?: string | null,
+  comments?: ModelCommentConnection | null,
   user1BlogsId?: string | null,
+};
+
+export type ModelCommentConnection = {
+  __typename: "ModelCommentConnection",
+  items:  Array<Comment | null >,
+  nextToken?: string | null,
+};
+
+export type Comment = {
+  __typename: "Comment",
+  id?: string | null,
+  content?: string | null,
+  createdAt?: string | null,
+  updatedAt?: string | null,
+  blogId?: string | null,
+  blog1CommentsId?: string | null,
 };
 
 export type UpdateUser1Input = {
@@ -200,6 +217,39 @@ export type DeleteBlog1Input = {
   id: string,
 };
 
+export type CreateCommentInput = {
+  id?: string | null,
+  content?: string | null,
+  createdAt?: string | null,
+  updatedAt?: string | null,
+  blogId?: string | null,
+  blog1CommentsId?: string | null,
+};
+
+export type ModelCommentConditionInput = {
+  content?: ModelStringInput | null,
+  createdAt?: ModelStringInput | null,
+  updatedAt?: ModelStringInput | null,
+  blogId?: ModelIDInput | null,
+  and?: Array< ModelCommentConditionInput | null > | null,
+  or?: Array< ModelCommentConditionInput | null > | null,
+  not?: ModelCommentConditionInput | null,
+  blog1CommentsId?: ModelIDInput | null,
+};
+
+export type UpdateCommentInput = {
+  id: string,
+  content?: string | null,
+  createdAt?: string | null,
+  updatedAt?: string | null,
+  blogId?: string | null,
+  blog1CommentsId?: string | null,
+};
+
+export type DeleteCommentInput = {
+  id: string,
+};
+
 export type CreateTodo1Input = {
   id?: string | null,
   name?: string | null,
@@ -264,6 +314,18 @@ export type ModelBlog1FilterInput = {
   or?: Array< ModelBlog1FilterInput | null > | null,
   not?: ModelBlog1FilterInput | null,
   user1BlogsId?: ModelIDInput | null,
+};
+
+export type ModelCommentFilterInput = {
+  id?: ModelIDInput | null,
+  content?: ModelStringInput | null,
+  createdAt?: ModelStringInput | null,
+  updatedAt?: ModelStringInput | null,
+  blogId?: ModelIDInput | null,
+  and?: Array< ModelCommentFilterInput | null > | null,
+  or?: Array< ModelCommentFilterInput | null > | null,
+  not?: ModelCommentFilterInput | null,
+  blog1CommentsId?: ModelIDInput | null,
 };
 
 export type ModelTodo1FilterInput = {
@@ -339,6 +401,17 @@ export type ModelSubscriptionBlog1FilterInput = {
   userId?: ModelSubscriptionIDInput | null,
   and?: Array< ModelSubscriptionBlog1FilterInput | null > | null,
   or?: Array< ModelSubscriptionBlog1FilterInput | null > | null,
+  blog1CommentsId?: ModelSubscriptionIDInput | null,
+};
+
+export type ModelSubscriptionCommentFilterInput = {
+  id?: ModelSubscriptionIDInput | null,
+  content?: ModelSubscriptionStringInput | null,
+  createdAt?: ModelSubscriptionStringInput | null,
+  updatedAt?: ModelSubscriptionStringInput | null,
+  blogId?: ModelSubscriptionIDInput | null,
+  and?: Array< ModelSubscriptionCommentFilterInput | null > | null,
+  or?: Array< ModelSubscriptionCommentFilterInput | null > | null,
 };
 
 export type ModelSubscriptionTodo1FilterInput = {
@@ -496,6 +569,10 @@ export type CreateBlog1Mutation = {
       updatedAt?: string | null,
     } | null,
     userId?: string | null,
+    comments?:  {
+      __typename: "ModelCommentConnection",
+      nextToken?: string | null,
+    } | null,
     user1BlogsId?: string | null,
   } | null,
 };
@@ -528,6 +605,10 @@ export type UpdateBlog1Mutation = {
       updatedAt?: string | null,
     } | null,
     userId?: string | null,
+    comments?:  {
+      __typename: "ModelCommentConnection",
+      nextToken?: string | null,
+    } | null,
     user1BlogsId?: string | null,
   } | null,
 };
@@ -560,7 +641,62 @@ export type DeleteBlog1Mutation = {
       updatedAt?: string | null,
     } | null,
     userId?: string | null,
+    comments?:  {
+      __typename: "ModelCommentConnection",
+      nextToken?: string | null,
+    } | null,
     user1BlogsId?: string | null,
+  } | null,
+};
+
+export type CreateCommentMutationVariables = {
+  input: CreateCommentInput,
+  condition?: ModelCommentConditionInput | null,
+};
+
+export type CreateCommentMutation = {
+  createComment?:  {
+    __typename: "Comment",
+    id?: string | null,
+    content?: string | null,
+    createdAt?: string | null,
+    updatedAt?: string | null,
+    blogId?: string | null,
+    blog1CommentsId?: string | null,
+  } | null,
+};
+
+export type UpdateCommentMutationVariables = {
+  input: UpdateCommentInput,
+  condition?: ModelCommentConditionInput | null,
+};
+
+export type UpdateCommentMutation = {
+  updateComment?:  {
+    __typename: "Comment",
+    id?: string | null,
+    content?: string | null,
+    createdAt?: string | null,
+    updatedAt?: string | null,
+    blogId?: string | null,
+    blog1CommentsId?: string | null,
+  } | null,
+};
+
+export type DeleteCommentMutationVariables = {
+  input: DeleteCommentInput,
+  condition?: ModelCommentConditionInput | null,
+};
+
+export type DeleteCommentMutation = {
+  deleteComment?:  {
+    __typename: "Comment",
+    id?: string | null,
+    content?: string | null,
+    createdAt?: string | null,
+    updatedAt?: string | null,
+    blogId?: string | null,
+    blog1CommentsId?: string | null,
   } | null,
 };
 
@@ -701,6 +837,10 @@ export type GetBlog1Query = {
       updatedAt?: string | null,
     } | null,
     userId?: string | null,
+    comments?:  {
+      __typename: "ModelCommentConnection",
+      nextToken?: string | null,
+    } | null,
     user1BlogsId?: string | null,
   } | null,
 };
@@ -725,6 +865,44 @@ export type ListBlog1sQuery = {
       updatedAt?: string | null,
       userId?: string | null,
       user1BlogsId?: string | null,
+    } | null >,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type GetCommentQueryVariables = {
+  id: string,
+};
+
+export type GetCommentQuery = {
+  getComment?:  {
+    __typename: "Comment",
+    id?: string | null,
+    content?: string | null,
+    createdAt?: string | null,
+    updatedAt?: string | null,
+    blogId?: string | null,
+    blog1CommentsId?: string | null,
+  } | null,
+};
+
+export type ListCommentsQueryVariables = {
+  filter?: ModelCommentFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListCommentsQuery = {
+  listComments?:  {
+    __typename: "ModelCommentConnection",
+    items:  Array< {
+      __typename: "Comment",
+      id?: string | null,
+      content?: string | null,
+      createdAt?: string | null,
+      updatedAt?: string | null,
+      blogId?: string | null,
+      blog1CommentsId?: string | null,
     } | null >,
     nextToken?: string | null,
   } | null,
@@ -862,6 +1040,10 @@ export type OnCreateBlog1Subscription = {
       updatedAt?: string | null,
     } | null,
     userId?: string | null,
+    comments?:  {
+      __typename: "ModelCommentConnection",
+      nextToken?: string | null,
+    } | null,
     user1BlogsId?: string | null,
   } | null,
 };
@@ -893,6 +1075,10 @@ export type OnUpdateBlog1Subscription = {
       updatedAt?: string | null,
     } | null,
     userId?: string | null,
+    comments?:  {
+      __typename: "ModelCommentConnection",
+      nextToken?: string | null,
+    } | null,
     user1BlogsId?: string | null,
   } | null,
 };
@@ -924,7 +1110,59 @@ export type OnDeleteBlog1Subscription = {
       updatedAt?: string | null,
     } | null,
     userId?: string | null,
+    comments?:  {
+      __typename: "ModelCommentConnection",
+      nextToken?: string | null,
+    } | null,
     user1BlogsId?: string | null,
+  } | null,
+};
+
+export type OnCreateCommentSubscriptionVariables = {
+  filter?: ModelSubscriptionCommentFilterInput | null,
+};
+
+export type OnCreateCommentSubscription = {
+  onCreateComment?:  {
+    __typename: "Comment",
+    id?: string | null,
+    content?: string | null,
+    createdAt?: string | null,
+    updatedAt?: string | null,
+    blogId?: string | null,
+    blog1CommentsId?: string | null,
+  } | null,
+};
+
+export type OnUpdateCommentSubscriptionVariables = {
+  filter?: ModelSubscriptionCommentFilterInput | null,
+};
+
+export type OnUpdateCommentSubscription = {
+  onUpdateComment?:  {
+    __typename: "Comment",
+    id?: string | null,
+    content?: string | null,
+    createdAt?: string | null,
+    updatedAt?: string | null,
+    blogId?: string | null,
+    blog1CommentsId?: string | null,
+  } | null,
+};
+
+export type OnDeleteCommentSubscriptionVariables = {
+  filter?: ModelSubscriptionCommentFilterInput | null,
+};
+
+export type OnDeleteCommentSubscription = {
+  onDeleteComment?:  {
+    __typename: "Comment",
+    id?: string | null,
+    content?: string | null,
+    createdAt?: string | null,
+    updatedAt?: string | null,
+    blogId?: string | null,
+    blog1CommentsId?: string | null,
   } | null,
 };
 

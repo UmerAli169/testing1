@@ -65,7 +65,7 @@
       "function": {
         "EmsPOSTSignUpTrigger": {
           "deploymentBucketName": "amplify-client-test-68c63-deployment",
-          "s3Key": "amplify-builds/EmsPOSTSignUpTrigger-546c4d534e5572354b38-build.zip"
+          "s3Key": "amplify-builds/EmsPOSTSignUpTrigger-52536b77456b6672374c-build.zip"
         },
         "EmsPostTodoAddHandler": {
           "deploymentBucketName": "amplify-client-test-68c63-deployment",

@@ -96,6 +96,10 @@ export const onCreateBlog1 = /* GraphQL */ `subscription OnCreateBlog1($filter: 
       __typename
     }
     userId
+    comments {
+      nextToken
+      __typename
+    }
     user1BlogsId
     __typename
   }
@@ -126,6 +130,10 @@ export const onUpdateBlog1 = /* GraphQL */ `subscription OnUpdateBlog1($filter: 
       __typename
     }
     userId
+    comments {
+      nextToken
+      __typename
+    }
     user1BlogsId
     __typename
   }
@@ -156,6 +164,10 @@ export const onDeleteBlog1 = /* GraphQL */ `subscription OnDeleteBlog1($filter: 
       __typename
     }
     userId
+    comments {
+      nextToken
+      __typename
+    }
     user1BlogsId
     __typename
   }
@@ -163,6 +175,51 @@ export const onDeleteBlog1 = /* GraphQL */ `subscription OnDeleteBlog1($filter: 
 ` as GeneratedSubscription<
   APITypes.OnDeleteBlog1SubscriptionVariables,
   APITypes.OnDeleteBlog1Subscription
+>;
+export const onCreateComment = /* GraphQL */ `subscription OnCreateComment($filter: ModelSubscriptionCommentFilterInput) {
+  onCreateComment(filter: $filter) {
+    id
+    content
+    createdAt
+    updatedAt
+    blogId
+    blog1CommentsId
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnCreateCommentSubscriptionVariables,
+  APITypes.OnCreateCommentSubscription
+>;
+export const onUpdateComment = /* GraphQL */ `subscription OnUpdateComment($filter: ModelSubscriptionCommentFilterInput) {
+  onUpdateComment(filter: $filter) {
+    id
+    content
+    createdAt
+    updatedAt
+    blogId
+    blog1CommentsId
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnUpdateCommentSubscriptionVariables,
+  APITypes.OnUpdateCommentSubscription
+>;
+export const onDeleteComment = /* GraphQL */ `subscription OnDeleteComment($filter: ModelSubscriptionCommentFilterInput) {
+  onDeleteComment(filter: $filter) {
+    id
+    content
+    createdAt
+    updatedAt
+    blogId
+    blog1CommentsId
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnDeleteCommentSubscriptionVariables,
+  APITypes.OnDeleteCommentSubscription
 >;
 export const onCreateTodo1 = /* GraphQL */ `subscription OnCreateTodo1($filter: ModelSubscriptionTodo1FilterInput) {
   onCreateTodo1(filter: $filter) {
