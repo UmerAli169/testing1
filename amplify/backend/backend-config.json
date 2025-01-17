@@ -1,0 +1,177 @@
+{
+  "api": {
+    "client": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "client82f206bc"
+        }
+      ],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authclient82f206bc"
+              }
+            }
+          ],
+          "defaultAuthentication": {
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 7
+            },
+            "authenticationType": "API_KEY"
+          }
+        }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
+    }
+  },
+  "auth": {
+    "client82f206bc": {
+      "customAuth": false,
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
+    }
+  },
+  "function": {
+    "EmsPOSTSignUpTrigger": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "EmsPostTodoAddHandler": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "EmsPostTodoDeleteHandler": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "EmsPostTodoHandler": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "EmsPostTodoUpdateHandler": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_EmsPOSTSignUpTrigger_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "EmsPOSTSignUpTrigger"
+        }
+      ]
+    },
+    "AMPLIFY_function_EmsPOSTSignUpTrigger_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "EmsPOSTSignUpTrigger"
+        }
+      ]
+    },
+    "AMPLIFY_function_EmsPostTodoAddHandler_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "EmsPostTodoAddHandler"
+        }
+      ]
+    },
+    "AMPLIFY_function_EmsPostTodoAddHandler_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "EmsPostTodoAddHandler"
+        }
+      ]
+    },
+    "AMPLIFY_function_EmsPostTodoDeleteHandler_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "EmsPostTodoDeleteHandler"
+        }
+      ]
+    },
+    "AMPLIFY_function_EmsPostTodoDeleteHandler_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "EmsPostTodoDeleteHandler"
+        }
+      ]
+    },
+    "AMPLIFY_function_EmsPostTodoHandler_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "EmsPostTodoHandler"
+        }
+      ]
+    },
+    "AMPLIFY_function_EmsPostTodoHandler_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "EmsPostTodoHandler"
+        }
+      ]
+    },
+    "AMPLIFY_function_EmsPostTodoUpdateHandler_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "EmsPostTodoUpdateHandler"
+        }
+      ]
+    },
+    "AMPLIFY_function_EmsPostTodoUpdateHandler_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "EmsPostTodoUpdateHandler"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "ems2s3": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
+    }
+  }
+}

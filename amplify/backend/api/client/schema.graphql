@@ -1,0 +1,61 @@
+input AMPLIFY {
+  globalAuthRule: AuthRule = {allow: public}
+}
+type User1 @model {
+  id: ID
+  name: String
+  email: String
+  userType: String
+  imageKey: String
+  category: String
+  description: String
+  createdAt: String
+  updatedAt: String
+  blogs: [Blog1] @hasMany
+}
+
+type Blog1 @model {
+  id: ID
+  name: String
+  description: String
+  imageKey: String
+  category: String
+  createdAt: String
+  updatedAt: String
+  user: User1 @belongsTo(fields: ["userId"])
+  userId: ID
+}
+
+
+type Todo1 @model  {
+  id: ID
+  name: String
+  description: String
+  createdAt: String
+  updatedAt: String
+}
+
+type Query {
+  customListUsers: [Todo1] @function(name: "EmsPostTodoHandler-test")
+}
+
+type Mutation {
+  customAddUsers(input: CreateTodoInput): Todo1 @function(name: "EmsPostTodoAddHandler-test")
+  customUpdateUsers(input: UpdateTodoInput): Todo1 @function(name: "EmsPostTodoUpdateHandler-test")
+  customDeleteUsers(input: DeleteTodoInput): Todo1 @function(name: "EmsPostTodoDeleteHandler-test")
+}
+
+input CreateTodoInput {
+  name: String
+  description: String
+}
+
+input UpdateTodoInput {
+  id: ID
+  name: String
+  description: String
+}
+
+input DeleteTodoInput {
+  id: ID
+}

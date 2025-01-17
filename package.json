@@ -1,0 +1,41 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@aws-amplify/api": "^6.2.0",
+    "@aws-amplify/auth": "^6.9.1",
+    "@aws-amplify/storage": "^6.7.6",
+    "@aws-amplify/ui-react": "^6.8.1",
+    "@aws-amplify/ui-react-storage": "^3.6.1",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@headlessui/react": "^2.1.2",
+    "@heroicons/react": "^2.1.5",
+    "aws-amplify": "^6.12.1",
+    "aws-sdk": "^2.1692.0",
+    "axios": "^1.7.9",
+    "formik": "^2.4.6",
+    "jsonwebtoken": "^9.0.2",
+    "next": "14.2.5",
+    "nookies": "^2.5.2",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-dropzone": "^14.3.5",
+    "yup": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}

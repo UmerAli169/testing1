@@ -1,0 +1,95 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-client-dev-c3770-authRole",
+      "UnauthRoleArn": "arn:aws:iam::812096089383:role/amplify-client-dev-c3770-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::812096089383:role/amplify-client-dev-c3770-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-client-dev-c3770-deployment",
+      "UnauthRoleName": "amplify-client-dev-c3770-unauthRole",
+      "StackName": "amplify-client-dev-c3770",
+      "StackId": "arn:aws:cloudformation:ap-south-1:812096089383:stack/amplify-client-dev-c3770/a44adb10-d3e7-11ef-8f26-0ae25dbe1def",
+      "AmplifyAppId": "d2uyxbwfpz0qkq"
+    },
+    "categories": {
+      "auth": {
+        "client82f206bc": {}
+      },
+      "function": {
+        "EmsPOSTSignUpTrigger": {
+          "deploymentBucketName": "amplify-client-dev-c3770-deployment",
+          "s3Key": "amplify-builds/EmsPOSTSignUpTrigger-727864546d7333467062-build.zip"
+        },
+        "EmsPostTodoAddHandler": {
+          "deploymentBucketName": "amplify-client-dev-c3770-deployment",
+          "s3Key": "amplify-builds/EmsPostTodoAddHandler-442b666666684e427955-build.zip"
+        },
+        "EmsPostTodoDeleteHandler": {
+          "deploymentBucketName": "amplify-client-dev-c3770-deployment",
+          "s3Key": "amplify-builds/EmsPostTodoDeleteHandler-6149685766676468516b-build.zip"
+        },
+        "EmsPostTodoHandler": {
+          "deploymentBucketName": "amplify-client-dev-c3770-deployment",
+          "s3Key": "amplify-builds/EmsPostTodoHandler-74395737324f79733747-build.zip"
+        },
+        "EmsPostTodoUpdateHandler": {
+          "deploymentBucketName": "amplify-client-dev-c3770-deployment",
+          "s3Key": "amplify-builds/EmsPostTodoUpdateHandler-6b6c31364a354c43445a-build.zip"
+        },
+        "testing": {
+          "deploymentBucketName": "amplify-client-dev-c3770-deployment",
+          "s3Key": "amplify-builds/testing-584e4b33787444555937-build.zip"
+        }
+      },
+      "storage": {
+        "ems2s3": {}
+      }
+    }
+  },
+  "test": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-client-test-68c63-authRole",
+      "UnauthRoleArn": "arn:aws:iam::812096089383:role/amplify-client-test-68c63-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::812096089383:role/amplify-client-test-68c63-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-client-test-68c63-deployment",
+      "UnauthRoleName": "amplify-client-test-68c63-unauthRole",
+      "StackName": "amplify-client-test-68c63",
+      "StackId": "arn:aws:cloudformation:ap-south-1:812096089383:stack/amplify-client-test-68c63/e1948920-d48d-11ef-9f09-0237420bea5b",
+      "AmplifyAppId": "d2uyxbwfpz0qkq"
+    },
+    "categories": {
+      "auth": {
+        "client82f206bc": {}
+      },
+      "function": {
+        "EmsPOSTSignUpTrigger": {
+          "deploymentBucketName": "amplify-client-test-68c63-deployment",
+          "s3Key": "amplify-builds/EmsPOSTSignUpTrigger-546c4d534e5572354b38-build.zip"
+        },
+        "EmsPostTodoAddHandler": {
+          "deploymentBucketName": "amplify-client-test-68c63-deployment",
+          "s3Key": "amplify-builds/EmsPostTodoAddHandler-374577446952744f4673-build.zip"
+        },
+        "EmsPostTodoDeleteHandler": {
+          "deploymentBucketName": "amplify-client-test-68c63-deployment",
+          "s3Key": "amplify-builds/EmsPostTodoDeleteHandler-31456464553974457a6f-build.zip"
+        },
+        "EmsPostTodoHandler": {
+          "deploymentBucketName": "amplify-client-test-68c63-deployment",
+          "s3Key": "amplify-builds/EmsPostTodoHandler-454158776f756b6f6a4f-build.zip"
+        },
+        "EmsPostTodoUpdateHandler": {
+          "deploymentBucketName": "amplify-client-test-68c63-deployment",
+          "s3Key": "amplify-builds/EmsPostTodoUpdateHandler-563130724f774d745247-build.zip"
+        }
+      },
+      "api": {
+        "client": {}
+      },
+      "storage": {
+        "ems2s3": {}
+      }
+    }
+  }
+}

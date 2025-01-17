@@ -1,0 +1,43 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Additional global styles if needed */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+
+body {
+  background-color: #f0f0f0; /* Light gray background color */
+  color: #333; /* Optional: Set a default text color */
+}
+
+a {
+  text-decoration: none;
+  color: inherit; /* Optional: Makes sure links inherit the color from the parent element */
+}
+
+body {
+  background-color: #f0f0f0; /* Fallback background color */
+    /* background-image: url('./styles/bg.jpg'); */
+  background-size: cover; /* Cover the entire viewport */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-attachment: fixed; /* Keeps the image fixed during scroll */
+}
+
+
+
+@media (max-width: 370px) {
+  body {
+    background-attachment: scroll; /* Change background attachment for mobile devices */
+  }
+}
